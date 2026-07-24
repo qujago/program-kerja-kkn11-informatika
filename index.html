@@ -690,17 +690,31 @@
             </div>
 
             <div class="row justify-content-center mt-2">
-                <div class="col-lg-10" data-aos="fade-up">
-                    <div class="card custom-card p-4 p-lg-5 border-top border-4 border-gold">
+                <div class="col-lg-11" data-aos="fade-up">
+                    <div class="card custom-card p-4 p-lg-5 border-top border-4 border-gold shadow-sm">
                         <div class="row g-4 align-items-center">
-                            <div class="col-md-3 text-center mb-4 mb-md-0 d-none d-md-block">
-                                <div class="icon-box mx-auto mb-3"
-                                    style="width: 120px; height: 120px; font-size: 60px;">
-                                    <i class="bi bi-bank"></i>
+                            <!-- Video Showcase Magnet School -->
+                            <div class="col-lg-5 mb-4 mb-lg-0">
+                                <div class="position-relative rounded-4 overflow-hidden shadow-lg border border-3 border-white">
+                                    <video class="w-100 d-block rounded-4" controls autoplay muted loop playsinline poster="galeri/g11.jpeg" style="max-height: 420px; object-fit: cover;">
+                                        <source src="dokumentasi/v1.mp4" type="video/mp4">
+                                        Browser Anda tidak mendukung pemutaran video.
+                                    </video>
+                                    <div class="position-absolute top-0 start-0 m-3">
+                                        <span class="badge bg-success shadow-sm px-3 py-2 fs-6">
+                                            <i class="bi bi-camera-reels-fill me-1"></i> Video Magnet School
+                                        </span>
+                                    </div>
                                 </div>
-                                <h4 class="text-primary mt-3">Pusat Pendidikan</h4>
+                                <div class="text-center mt-2">
+                                    <small class="text-muted fst-italic">
+                                        <i class="bi bi-info-circle me-1"></i> Suasana terkini lokasi Gedung Magnet School
+                                    </small>
+                                </div>
                             </div>
-                            <div class="col-md-9 fs-5 text-muted" style="text-align: justify;">
+
+                            <!-- Deskripsi Rencana Kampus 2 -->
+                            <div class="col-lg-7 fs-5 text-muted" style="text-align: justify;">
                                 <p><strong>Gedung Magnet School</strong> di Desa Dama Tutong, Kecamatan Peureulak,
                                     Kabupaten Aceh Timur, yang sempat terbengkalai puluhan tahun, akhirnya bakal
                                     difungsikan kembali. Pemerintah Kabupaten Aceh Timur bersama Universitas Samudra
@@ -831,199 +845,12 @@
                 </div>
             </div>
 
-            <!-- Gallery Grid -->
+            <!-- Gallery Grid (Rendered dynamically from js/gallery-data.js) -->
             <div class="marquee-wrapper" data-aos="fade-up" data-aos-delay="200">
-                <!-- Baris 1: Bergerak ke Kiri -->
-                <div class="marquee-container">
-                    <div class="marquee-track">
-                        <!-- Set 1 -->
-                        <div class="marquee-set">
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g1.jpeg" alt="Rapat Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Membersihkan Masjid Gampong</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g2.jpeg" alt="Kegiatan" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Membersihkan Halaman Gampong</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g3.jpeg" alt="Gotong Royong" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Gotong Royong</h5>
-                                    <p class="mb-0 small">Membersihkan fasilitas umum.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g4.jpeg" alt="Mesjid" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Daerah Gampong</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g5.jpeg" alt="Dokumentasi" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Masjid Gampong Malam Hari</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g6.jpeg" alt="Dokumentasi" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Masjid Gampong</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Set 2 (Duplikat persis Set 1 agar loop tidak terputus) -->
-                        <div class="marquee-set">
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g1.jpeg" alt="Rapat Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Rapat Desa</h5>
-                                    <p class="mb-0 small">Kegiatan aparatur gampong.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g2.jpeg" alt="Panen Padi" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Panen Padi</h5>
-                                    <p class="mb-0 small">Masa panen sawah warga.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g3.jpeg" alt="Gotong Royong" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Gotong Royong</h5>
-                                    <p class="mb-0 small">Membersihkan fasilitas umum.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g4.jpeg" alt="Mesjid" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Mesjid Gampong</h5>
-                                    <p class="mb-0 small">Sarana ibadah masyarakat.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g5.jpeg" alt="Kebun Sawit" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kebun Sawit</h5>
-                                    <p class="mb-0 small">Potensi perkebunan.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g6.jpeg" alt="Turnamen Voli" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Turnamen Voli</h5>
-                                    <p class="mb-0 small">Aktivitas kepemudaan.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
 
-                <!-- Baris 2: Bergerak ke Kanan -->
-                <div class="marquee-container mt-3">
-                    <div class="marquee-track marquee-reverse">
-                        <!-- Set 1 -->
-                        <div class="marquee-set">
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g1.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Membersihkan Masjid.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g2.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Membersihkan Halaman .</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g9.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan UMKM</h5>
-                                    <p class="mb-0 small">Pembuatan Sapu Lidi.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g10.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan UMKM</h5>
-                                    <p class="mb-0 small">Pembuatan Sapu Lidi.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g11.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Magnet School</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g3.jpeg" alt="Gotong Royong" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Masjid Di Malam Hari.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Set 2 (Duplikat) -->
-                        <div class="marquee-set">
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g7.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan UMKM</h5>
-                                    <p class="mb-0 small">Pembuatan Sapu Lidi.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g8.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Masjid Di Siang Hari.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g9.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Aktivitas masyarakat.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g10.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Kegiatan</h5>
-                                    <p class="mb-0 small">Aktivitas masyarakat.</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g11.jpeg" alt="Kegiatan Desa" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Dokumentasi</h5>
-                                    <p class="mb-0 small">Suasana Magnet School</p>
-                                </div>
-                            </div>
-                            <div class="gallery-card shadow-sm marquee-item">
-                                <img src="galeri/g3.jpeg" alt="Gotong Royong" class="img-fluid">
-                                <div class="gallery-caption">
-                                    <h5>Gotong Royong</h5>
-                                    <p class="mb-0 small">Membersihkan fasilitas umum.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Tombol Lihat Semua Foto Modal -->
+            <div id="view-all-gallery-btn-wrapper" class="text-center mt-4 mb-2" data-aos="fade-up">
             </div>
 
             <!-- Call to Action KKN Media Sosial -->
@@ -1110,7 +937,7 @@
                     <div class="card custom-card p-4 p-md-5">
                         <h3 class="mb-4">Kirim Pesan</h3>
                         <form action="https://api.web3forms.com/submit" method="POST">
-                            <input type="hidden" name="access_key" value="79905211-ea95-4ff1-b14f-726d27eb1b95">
+                            <input type="hidden" name="access_key" value="b3a963fd-d3d4-45b3-a4f5-c7284fa9d870">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -1202,11 +1029,31 @@
         <i class="bi bi-arrow-up"></i>
     </div>
 
+    <!-- Modal Gallery Grid -->
+    <div class="modal fade" id="galleryGridModal" tabindex="-1" aria-labelledby="galleryGridModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-primary" id="galleryGridModalLabel">
+                        <i class="bi bi-images me-2"></i>Semua Dokumentasi Galeri
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3" id="gallery-grid-container">
+                        <!-- Content rendered dynamically from js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
+    <script src="js/gallery-data.js"></script>
     <script src="js/script.js"></script>
 </body>
 

@@ -145,54 +145,120 @@ document.addEventListener("DOMContentLoaded", () => {
         progressBars.forEach(bar => progressObserver.observe(bar));
     }
 
-    // 6. Gallery Filtering & Lightbox
-    const filterBtns = document.querySelectorAll('.gallery-filter .btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    // 6. Dynamic Gallery Rendering & Lightbox
+    const marqueeWrapper = document.querySelector('.marquee-wrapper');
+    const gridContainer = document.getElementById('gallery-grid-container');
+    const viewAllBtnContainer = document.getElementById('view-all-gallery-btn-wrapper');
 
-    if (filterBtns.length > 0) {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all
-                filterBtns.forEach(b => b.classList.remove('btn-primary-custom'));
-                filterBtns.forEach(b => b.classList.add('btn-outline-success'));
-                
-                // Add active class to clicked
-                btn.classList.remove('btn-outline-success');
-                btn.classList.add('btn-primary-custom');
+    function renderGallery(data) {
+        if (!data || data.length === 0 || !marqueeWrapper) return;
 
-                const filterValue = btn.getAttribute('data-filter');
+        // Tentukan jumlah baris marquee (3 baris jika foto > 12 agar animasi berjalan lebih seimbang dan cepat)
+        const numRows = data.length > 12 ? 3 : 2;
 
-                galleryItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                // Re-init AOS if needed, or just let layout recalculate
-            });
+        // Distribusikan gambar secara berselang-seling (interleaved)
+        // Agar gambar-gambar terbaru (seperti g15 - g23) tersebar merata di seluruh baris marquee
+        const rowsData = Array.from({ length: numRows }, () => []);
+        data.forEach((item, index) => {
+            rowsData[index % numRows].push(item);
         });
+
+        const buildSetHTML = (items) => {
+            return items.map(item => {
+                const src = typeof item === 'string' ? item : item.src;
+                const title = (typeof item === 'object' && item.title) ? item.title : 'Dokumentasi';
+                const caption = (typeof item === 'object' && item.caption) ? item.caption : 'Kegiatan Gampong';
+                const alt = title;
+
+                return `
+                    <div class="gallery-card shadow-sm marquee-item">
+                        <img src="${src}" alt="${alt}" class="img-fluid">
+                        <div class="gallery-caption">
+                            <h5>${title}</h5>
+                            <p class="mb-0 small">${caption}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        };
+
+        // Buat HTML untuk setiap baris marquee
+        let wrapperHTML = '';
+        rowsData.forEach((rowData, rIndex) => {
+            const setHTML = buildSetHTML(rowData);
+            const isReverse = rIndex % 2 !== 0 ? ' marquee-reverse' : '';
+            const marginTop = rIndex > 0 ? ' mt-3' : '';
+
+            wrapperHTML += `
+                <div class="marquee-container${marginTop}">
+                    <div class="marquee-track${isReverse}">
+                        <div class="marquee-set">
+                            ${setHTML}
+                        </div>
+                        <div class="marquee-set">
+                            ${setHTML}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        marqueeWrapper.innerHTML = wrapperHTML;
+
+        // Render Tombol "Lihat Semua Foto"
+        if (viewAllBtnContainer) {
+            viewAllBtnContainer.innerHTML = `
+                <button class="btn btn-outline-success rounded-pill px-4 py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#galleryGridModal">
+                    <i class="bi bi-grid-3x3-gap-fill me-2"></i>Lihat Semua Foto (${data.length} Foto)
+                </button>
+            `;
+        }
+
+        // Render Grid Foto di Modal
+        if (gridContainer) {
+            gridContainer.innerHTML = data.map(item => {
+                const src = typeof item === 'string' ? item : item.src;
+                const title = (typeof item === 'object' && item.title) ? item.title : 'Dokumentasi';
+                const caption = (typeof item === 'object' && item.caption) ? item.caption : 'Kegiatan Gampong';
+
+                return `
+                    <div class="col">
+                        <div class="gallery-card shadow-sm h-100">
+                            <img src="${src}" alt="${title}" class="img-fluid">
+                            <div class="gallery-caption">
+                                <h5>${title}</h5>
+                                <p class="mb-0 small">${caption}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
     }
 
-    // Lightbox logic
+    if (marqueeWrapper && typeof galleryImages !== 'undefined' && Array.isArray(galleryImages)) {
+        renderGallery(galleryImages);
+    }
+
+    // Lightbox logic (Event Delegation)
     const lightbox = document.getElementById('lightbox-overlay');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
-    const galleryCards = document.querySelectorAll('.gallery-card img');
 
-    if (lightbox && galleryCards.length > 0) {
-        galleryCards.forEach(img => {
-            img.addEventListener('click', (e) => {
-                const src = e.target.src;
-                lightboxImg.src = src;
+    if (lightbox) {
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.gallery-card img')) {
+                const img = e.target.closest('.gallery-card img');
+                lightboxImg.src = img.src;
                 lightbox.classList.add('active');
-            });
+            }
         });
 
-        lightboxClose.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
+        if (lightboxClose) {
+            lightboxClose.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+        }
 
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
